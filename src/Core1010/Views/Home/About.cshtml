@@ -1,7 +1,22 @@
-﻿@{
+﻿@using System.Threading.Tasks
+@using Core1010.Repository.Models
+@{
     ViewData["Title"] = "About";
 }
 <h2>@ViewData["Title"].</h2>
 <h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+@foreach (Engagement eng in @Model.Engagements)
+{
+    <div class="thumbnail">
+        @eng.Id
+    </div>
+    <div class="thumbnail">
+        @eng.Name
+    </div>
+    <div class="thumbnail">
+        @eng.Description
+    </div>
+}
+
+
