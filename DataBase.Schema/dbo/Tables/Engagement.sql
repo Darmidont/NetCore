@@ -1,4 +1,4 @@
-﻿create table dbo.Engagement
+﻿create table dbo.Engagements
 (
 	Id int not null identity (1, 1),
 	Name nvarchar(100) not null,

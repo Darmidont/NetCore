@@ -23,7 +23,7 @@ namespace Core1010.Controllers
         {
 			//var engagement = new Engagement() {Name = null};
 			//_engagementRepository.AddEngagement(engagement);
-	        var engagements = _engagementRepository.GetEngagements();
+	        var engagements = _engagementRepository.GetEngagements().ToList();
 			return View(engagements);
         }
 
