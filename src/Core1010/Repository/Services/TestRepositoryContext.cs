@@ -17,15 +17,24 @@ namespace Core1010.Repository.Services
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
 			optionsBuilder.UseSqlServer(_connectionStrings.DefaultConnection);
 		}
 
 		public DbSet<Engagement> Engagements { get; set; }
+
 		public void AddEngagement(Engagement engagement)
 		{
 			Engagements.Add(engagement);
 			this.SaveChanges(true);
+		}
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Engagement>(entity =>
+			{
+				entity.Property(e => e.Name).IsRequired();
+			});
 		}
 	}
 }

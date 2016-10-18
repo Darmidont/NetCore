@@ -21,12 +21,10 @@ namespace Core1010.Controllers
 
         public IActionResult Index()
         {
-	        //var engagements = _engagementRepository.GetEngagements().ToList();
-			//engagements.
-			var engagement = new Engagement() {Name = "test1", Id = 3};
-	        _engagementRepository.AddEngagement(engagement);
-
-			return View();
+			//var engagement = new Engagement() {Name = null};
+			//_engagementRepository.AddEngagement(engagement);
+	        var engagements = _engagementRepository.GetEngagements();
+			return View(engagements);
         }
 
         public IActionResult About()
