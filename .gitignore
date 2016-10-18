@@ -34,3 +34,5 @@ DbGenOutput/
 *.log
 *.scc
 *.publishproj
+/src/Core1010/bin
+/src/Core1010/obj
